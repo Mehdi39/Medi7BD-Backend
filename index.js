@@ -123,6 +123,7 @@ async function server() {
             res.json(result)
         })
 
+        // POST API for adding order in database
         app.post('/addorder', async (req, res) => {
             const data = req.body
             const result = await orderCollection.insertOne(data)
@@ -130,6 +131,7 @@ async function server() {
             res.json(result)
         })
 
+        // DELETE API for deleting order
         app.delete('/cancelorder', async (req, res) => {
             const result = await orderCollection.deleteOne({
                 _id: ObjectId(req.query.pdID)
